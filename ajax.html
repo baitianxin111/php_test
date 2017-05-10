@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+			<script src="js/jquery.min.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<input type="text" name="name" id="username" value="" />
+		<br />
+		<button id="btn">send</button>
+		<span id="result"></span>
+	</body>
+	<script>
+		$(function(){
+			
+			$('#username').on('input',function(){
+			var userInput=$('#username').val();
+			var reg=/^1[0-9]\d{9}$/;
+			$.post('test.php',{name:userInput},function(data){
+					if(reg.test(userInput))
+					{
+						$('#result').text(data);
+						alert('verify successfully');
+						
+					}
+					else{
+					  $('#result').text('please input correct tell');
+					}
+					 
+				});
+				 
+			}) ;
+			 
+		});
+	</script>
+	
+</html>
