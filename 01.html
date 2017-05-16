@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/jquery.js">
+
+		</script>
+	</head>
+	<body>
+		<form action="welcom.php" method="post">
+
+
+
+		<span id="sp1">
+			1
+		</span>
+		<br />
+		<input type="text" class="name" name="name" id="" placeholder="13600000000" /><br />
+		<span id="sp2">
+			2
+		</span><br />
+		<input type="password" class="password" name="password" id="" placeholder="abcd2345" /><br />
+		<button id="bt1" type="submit">登录</button>
+
+
+
+		</form>
+		<button id="bt2" type="submit">加载02.html</button>
+		<div class="box"></div>
+	</body>
+	<script type="text/javascript">
+		// var reg1 = /^1[3458]\d{9}$/g;
+		// var reg2 = /^\w+@\w+\.[a-z]{2,4}$/;
+		// var reg3 = /\w{8,10}/g;
+		// 给一个状态码
+		var i=1;
+		$('.name').on("focus blur",function(){
+			$.post('welcom.php',{name:$('.name').val(),tar:i},function(data){
+				$('#sp1').text(data);
+			});
+		});
+		$('.password').on("focus blur ",function(){
+			$.post("welcom.php",{password:$('.password').val(),tar:i},function(data){
+					$('#sp2').text(data);
+			});
+		});
+		$('#bt2').on('click',function(){
+			 $('.box').load('02.html');
+		})
+	</script>
+</html>

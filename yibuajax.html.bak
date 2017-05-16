@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#box{
+				width: 100px;
+				height: 100px;
+				border: 1px solid red;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<!--<input type="text" name="name" id="name" value="" />-->
+		</div>
+		<button onclick="show()">click me</button>
+	</body>
+	<script type="text/javascript">
+		var xhr = null;
+		if (window.XMLHttpRequest) {
+			xhr = new XMLHttpRequest();
+			
+		} else if(window.ActiveXObject()){
+			xhr = new ActiveXObject();
+		}
+		else{
+			alert("对不起，您的浏览器不支持");
+		}
+		function show(){
+			xhr.open("Get",'ajax.txt',true);
+			xhr.send();
+			xhr.onreadystatechange = function(){
+				if (xhr.readyState==4&&xhr.status==400) {
+					document.getElementById('box').innerHTML=xhr.responseText;
+				}
+			}
+		}
+	</script>
+</html>

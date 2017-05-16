@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="js/jquery.js" charset="utf-8">
+
+    </script>
+  </head>
+  <body>
+    <form id="form" action="index.html" method="post">
+      <br/>
+        姓名：<input type="text" name="name" value="">
+          <br/>
+        年龄：<input type="text" name="age" value="">
+          <br/>
+        性别：<input type="radio" name="sex" value="">男
+              <input type="radio" name="sex" value="">女
+          <br/>
+        爱好：<input type="checkbox" name="aihao" value="">打球
+        <input type="checkbox" name="aihao" value="">看电影
+        <input type="checkbox" name="aihao" value="">打豆豆
+        <input type="checkbox" name="aihao" value="">睡觉
+          <br/>
+          密码：<input type="text" name="pwd" value="">
+            <br/>
+          <!-- <input  type="submit" name="" value="提交"> -->
+          <button id="btn" type="button" name="button">提交</button>
+    </form>
+  </body>
+
+  <script type="text/javascript">
+        $('#btn').click(function(){
+          // 吧表单数据提交
+          var formData = $('#form').serialize();
+          console.log(formData);
+          //  $('#form').
+        })
+  </script>
+</html>
